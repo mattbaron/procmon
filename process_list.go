@@ -26,7 +26,6 @@ func NewProcessList() (*ProcessList, error) {
 
 	for _, proc := range allProcesses {
 		processList.Add(proc)
-		processList.CountProcess(proc)
 	}
 
 	return processList, nil
@@ -34,9 +33,7 @@ func NewProcessList() (*ProcessList, error) {
 
 func (processList *ProcessList) Add(process *process.Process) {
 	processList.Procs = append(processList.Procs, process)
-}
 
-func (processList *ProcessList) CountProcess(process *process.Process) {
 	name, err := process.Name()
 	if err != nil {
 		return
